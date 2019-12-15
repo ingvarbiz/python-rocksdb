@@ -164,6 +164,8 @@ class py_DB {
     void Close();
     py::tuple CreateColumnFamily(const ColumnFamilyOptions& options, const std::string& column_family_name);
     std::unique_ptr<IteratorWrapper> NewIterator(const ReadOptions& options);
+    std::unique_ptr<IteratorWrapper> NewIterator(const ReadOptions& options,
+                        ColumnFamilyHandle* column_family);
     //FIXME: python gc
     ~py_DB();
     const std::string default_column_familiy_name();
